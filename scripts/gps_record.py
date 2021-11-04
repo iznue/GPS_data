@@ -62,10 +62,10 @@ def talker():
                 gps_time = float(time_s)
                 #if gps_time == pre_time :
                 #    continue
-                if (gps_time - pre_time)>1:
+                if ((gps_time - pre_time)>=2 and (gps_time%100)!=58 and (gps_time%100)!=59 and (gps_time%100)!=0 and (gps_time%100)!=1):
                     gps_time = gps_time-1
-                elif (gps_time - pre_time)<=0 :
-                    gps_time = pre_time+1
+                #if (gps_time - pre_time)<=0 : #& abs(gps_time-pre_time)<50 :
+                 #   gps_time = pre_time+1
         
             if(lat_s != "") :
                 #lat = float(lat_s)
@@ -93,6 +93,7 @@ def talker():
             lat = pre_lat
             lon = pre_lon
             alt = pre_alt
+            print("value error")
 
         pre_time = gps_time
         pre_lat = lat 
